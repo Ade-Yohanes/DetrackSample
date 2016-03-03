@@ -1,7 +1,8 @@
 var apiKey = '3a99928772f834765b675efef2d7330be2e2a7a3ba33b8ff';
-var Client = require('node-rest-client').Client;
+var Client = require('node-rest-client').Client; // Get the rest client that will be used to send the request
 var client = new Client();
 function editDeliveries() {
+    //Data that needs to be updated
     var postData = [
         {
             "date": new Date().toISOString().split('T')[0],
@@ -41,10 +42,11 @@ function editDeliveries() {
             'Content-Type': 'application/json',
         }
     };
+    //Initiate edit request
     client.post("https://app.detrack.com/api/v1/deliveries/update.json", args, function (data, response) {
         console.log(data);
-        //console.log("Address: " + data["deliveries"][0]["address"]);
+        console.log("Do: " + data["results"][0]["do"]); //Return data is in JSON array format. Access the individual Elements with index or iterate over it to access the individual property
     });
 }
-editDeliveries();
+editDeliveries(); //Type script entry point. - Run from command prompt: node EditDelivery.ts
 //# sourceMappingURL=EditDelivery.js.map

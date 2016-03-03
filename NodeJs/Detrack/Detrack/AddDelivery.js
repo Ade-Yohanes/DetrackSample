@@ -1,7 +1,8 @@
 var apiKey = '3a99928772f834765b675efef2d7330be2e2a7a3ba33b8ff';
-var Client = require('node-rest-client').Client;
+var Client = require('node-rest-client').Client; // Get the rest client that will be used to send the request
 var client = new Client();
 function addDeliveries() {
+    // Prepare the rest data that will be used in the post request.
     var postData = [
         {
             "date": new Date().toISOString().split('T')[0],
@@ -43,8 +44,8 @@ function addDeliveries() {
     };
     client.post("https://app.detrack.com/api/v1/deliveries/create.json", args, function (data, response) {
         console.log(data);
-        //console.log("Address: " + data["deliveries"][0]["address"]);
+        console.log("Do: " + data["results"][0]["do"]); //Return data is in JSON array format. Access the individual Elements with index or iterate over it to access the individual property
     });
 }
-addDeliveries();
+addDeliveries(); //Type script entry point. - Run from command prompt: node AddDelivery.ts
 //# sourceMappingURL=AddDelivery.js.map
