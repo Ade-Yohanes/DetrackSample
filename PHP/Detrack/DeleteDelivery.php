@@ -1,8 +1,9 @@
 <?php   
-
+	//Execute from command prompt as 'php DeleteDelivery.php'
+	//Initialize the data that will be send to delete request
 	$data = array(
 	array(
-      "date"=>date('Y-m-d'),
+      "date"=>date('Y-m-d'), //Date in yyyy-mm-dd format
       "do"=>"DO140211001",
      )
    );
@@ -19,12 +20,13 @@
 
 	
 
-	// 6. View All Deliveries
+	// 3. Delete a delivery
+	//Initialize the cURL handler with common properties
 	$connection = curl_init();
 	curl_setopt($connection, CURLOPT_URL, "https://app.detrack.com/api/v1/deliveries/delete.json");
-	curl_setopt ($connection, CURLOPT_POST, true);
+	curl_setopt ($connection, CURLOPT_POST, true); //Mark requests as POST
 	curl_setopt($connection, CURLOPT_CUSTOMREQUEST, "POST");  
-	curl_setopt($connection,CURLOPT_POSTFIELDS, $data_string);
+	curl_setopt($connection,CURLOPT_POSTFIELDS, $data_string); //Add the post body
 	curl_setopt($connection, CURLOPT_RETURNTRANSFER, 1);
 	//curl_setopt($connection, CURLINFO_HEADER_OUT, 1); // enable tracking
 	curl_setopt($connection, CURLOPT_SSL_VERIFYHOST, 0);

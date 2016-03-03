@@ -1,13 +1,15 @@
 <?php   
-
+	//Execute from command prompt as 'php ViewAllVehicles.php'
+	//Initialize the data that will be send to View All Deliveries request
 	/*Set common properties of request*/
 	$headers = array(
 		'Content-Type: application/json', 
-		'Content-Length: 0', 
+		'Content-Length: 0', //Empty body in POST request
 		'X-API-KEY: 3a99928772f834765b675efef2d7330be2e2a7a3ba33b8ff'
 	);
 
 	// 6. View All Vehicles
+	//Initialize the cURL handler with common properties
 	$connection = curl_init();
 	curl_setopt($connection, CURLOPT_URL, "https://app.detrack.com/api/v1/vehicles/view/all.json");
 	curl_setopt ($connection, CURLOPT_POST, 1);
