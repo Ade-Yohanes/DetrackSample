@@ -1,0 +1,14 @@
+{
+  "name": "Detrack",
+  "version": "0.0.0",
+  "description": "Detrack",
+  "main": "app.js",
+  "author": {
+    "name": "vishal.patel",
+    "email": ""
+  },
+  "dependencies": {
+    "node-rest-client": "^1.8.0",
+    "fs": "^0.0.2"
+  }
+}
