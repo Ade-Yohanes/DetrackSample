@@ -22,4 +22,8 @@ class Item
   def qty=(value)
     @qty = value
   end
+
+  def to_json
+    {'sku' => @sku, 'desc' => @desc, 'qty' => @qty.to_i}.to_json
+  end
 end

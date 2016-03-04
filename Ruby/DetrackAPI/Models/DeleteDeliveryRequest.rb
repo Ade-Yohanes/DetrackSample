@@ -4,7 +4,7 @@ class DeleteDeliveryRequest
     return @date
   end
 
-  def date(value)
+  def date=(value)
     @date = value
   end
 
@@ -12,7 +12,11 @@ class DeleteDeliveryRequest
     return @do
   end
 
-  def do(value)
+  def do=(value)
     @do = value
+  end
+
+  def to_json
+    {'date' => @date, 'do' => @do}.to_json
   end
 end

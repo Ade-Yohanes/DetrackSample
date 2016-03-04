@@ -1,6 +1,17 @@
 class DeliveryItem
   def initialize
     @items = []
+    @date = ''
+    @do = ''
+    @address = ''
+    @delivery_time = ''
+    @deliver_to = ''
+    @phone = ''
+    @notify_email = ''
+    @notify_url = ''
+    @assign_to = ''
+    @instructions = ''
+    @zone = ''
   end
 
   def date
@@ -97,5 +108,22 @@ class DeliveryItem
 
   def items=(value)
     @items = value
+  end
+
+  def to_json
+    {
+        'do' => @do,
+        'date' => @date,
+        'address' => @address,
+        'delivery_time' => @delivery_time,
+        'delivery_to' => @deliver_to,
+        'notify_url' => @notify_url,
+        'notify_email' => @notify_email,
+        'phone' => @phone,
+        'assign_to' => @assign_to,
+        'instructions' => @instructions,
+        'zone' => @zone,
+        'items' => @items.map { |i| {:sku => i.sku, :desc => i.desc, :qty => i.qty.to_i} }
+    }.to_json
   end
 end
